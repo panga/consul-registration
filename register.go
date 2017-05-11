@@ -36,6 +36,7 @@ func main() {
 	consulAddrPtr := flag.String("consul", "http://consul.service.consul", "The address or IP for consul")
 	serviceNamePtr := flag.String("name", "", "The service name for consul")
 	serviceIdPtr := flag.String("id", "", "The service ID for consul")
+	servicePortPtr := flag.Int("port", 80, "The service port for consul")
 	flag.Var(&serviceTags, "tag", "A tag to be applied to the service. Repeat option for multiple tags")
 	sleepPtr := flag.Int("sleep", 30, "How long to wait between checking in with consul.")
 
@@ -62,6 +63,7 @@ func main() {
 	registration := post.Registration{
 		Id:      *serviceIdPtr,
 		Name:    *serviceNamePtr,
+		Port:    *servicePortPtr,
 		Tags:    serviceTags,
 		Address: containerAddress,
 		Check:   &check,

@@ -15,6 +15,7 @@ type Check struct {
 	Interval string `json:"Interval,omitempty"`
 	Script   string `json:"Script,omitempty"`
 }
+
 type Registration struct {
 	Id      string   `json:"ID,omitempty"`
 	Name    string   `json:"Name"`
