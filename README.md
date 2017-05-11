@@ -27,7 +27,7 @@ Usage of /bin/consul-registration:
   -id="": The service ID for consul
   -interval="45s": Interval for consul's HTTP check
   -name="": The service name for consul
-	-port=80: The service port for consul
+  -port=80: The service port for consul
   -note="": A note to pass along with service checks
   -once=false: Only register the service, then exit
   -script="": Script on consul server to execute
