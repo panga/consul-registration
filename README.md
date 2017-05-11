@@ -7,7 +7,7 @@ This is mainly meant for use as a docker container sidekick to a primary service
 
 ```
 docker run -d --name webapp organization/webapp 
-docker run --link webapp:webapp micahhausler/consul-registration \
+docker run --link webapp:webapp panga/consul-registration \
 	-consul http://consul.example.com \
 	-container webapp \
 	-id webapp1 \
@@ -19,7 +19,7 @@ docker run --link webapp:webapp micahhausler/consul-registration \
 For help output: just run with `-h`
 
 ```
-$ docker run micahhausler/consul-registration -h
+$ docker run panga/consul-registration -h
 Usage of /bin/consul-registration:
   -consul="http://consul.service.consul": The address or IP for consul
   -container="": The container name to watch
@@ -43,13 +43,13 @@ Usage of /bin/consul-registration:
 If you just want to build the app, but not run it in a docker container, run:
 
 ```bash
-docker run --rm -v $(pwd):/go/src/github.com/micahhausler/consul-registration -w /go/src/github.com/micahhausler/consul-registration golang:1.4.2 go build -v
+docker run --rm -v $(pwd):/go/src/github.com/panga/consul-registration -w /go/src/github.com/panga/consul-registration golang:1.4.2 go build -v
 
 ```
 If you want to build for busybox and have a mini-container:
 
 ```bash
-docker run --rm -v $(pwd):/go/src/github.com/micahhausler/consul-registration -w /go/src/github.com/micahhausler/consul-registration golang:1.4.2 go build -v -a -tags netgo -installsuffix netgo -ldflags '-w'
+docker run --rm -v $(pwd):/go/src/github.com/panga/consul-registration -w /go/src/github.com/panga/consul-registration golang:1.4.2 go build -v -a -tags netgo -installsuffix netgo -ldflags '-w'
 ```
 
 ### Cross-compile inside the Docker container
@@ -57,13 +57,13 @@ docker run --rm -v $(pwd):/go/src/github.com/micahhausler/consul-registration -w
 If you need to compile for a platform other than linux/amd64 (such as windows/386), this can be easily accomplished with the provided cross tags:
 
 ```bash
-docker run --rm -v $(pwd):/go/src/github.com/micahhausler/consul-registration -w /go/src/github.com/micahhausler/consul-registration -e GOOS=windows -e GOARCH=386 golang:1.4.2-cross go build -v
+docker run --rm -v $(pwd):/go/src/github.com/panga/consul-registration -w /go/src/github.com/panga/consul-registration -e GOOS=windows -e GOARCH=386 golang:1.4.2-cross go build -v
 ```
 
 Alternatively, you can build for multiple platforms at once:
 
 ```bash
-docker run --rm -it -v $(pwd):/go/src/github.com/micahhausler/consul-registration -w /go/src/github.com/micahhausler/consul-registration golang:1.4.2-cross bash
+docker run --rm -it -v $(pwd):/go/src/github.com/panga/consul-registration -w /go/src/github.com/panga/consul-registration golang:1.4.2-cross bash
 $ for GOOS in darwin linux; do
 >   for GOARCH in 386 amd64; do
 >     go build -v -o myapp-$GOOS-$GOARCH

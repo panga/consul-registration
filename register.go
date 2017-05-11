@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/micahhausler/consul-registration/open"
-	"github.com/micahhausler/consul-registration/post"
+	"github.com/panga/consul-registration/open"
+	"github.com/panga/consul-registration/post"
 	"os"
 	"os/signal"
 	"syscall"

@@ -1,11 +1,8 @@
 package open
 
 import (
-	"bufio"
-	"bytes"
+	"net"
 	"fmt"
-	"io/ioutil"
-	"strings"
 )
 
 func check(e error) {
@@ -16,18 +13,7 @@ func check(e error) {
 }
 
 func FindAddress(containerName string) string {
-	data, err := ioutil.ReadFile("/etc/hosts")
+	addresses, err := net.LookupIP(containerName)
 	check(err)
-	scanner := bufio.NewScanner(bytes.NewReader(data))
-	for scanner.Scan() {
-		line := scanner.Text()
-		if len(line) == 0 {
-			continue
-		}
-		if strings.Contains(line, containerName) {
-			parts := strings.Fields(line)
-			return parts[0]
-		}
-	}
-	return ""
+  return addresses[0].String()
 }
