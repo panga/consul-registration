@@ -5,7 +5,7 @@
 # $ docker build -t panga/consul-registration .
 #
 # To run:
-# $ docker run --link <linked-container-name>:<container-alias> panga/consul-registration -h
+# $ docker run panga/consul-registration -h
 
 FROM busybox
 
