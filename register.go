@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/panga/consul-registration/open"
-	"github.com/panga/consul-registration/post"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"./open"
+	"./post"
 )
 
 func check(e error) {
@@ -21,7 +22,7 @@ func check(e error) {
 type strslice []string
 
 func (i *strslice) String() string {
-	return fmt.Sprintf("%d", *i)
+	return fmt.Sprintf("%s", *i)
 }
 
 func (i *strslice) Set(value string) error {

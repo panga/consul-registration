@@ -1,7 +1,7 @@
 # Script for registering a linked container with consul
 #
 # To build:
-# $ docker run --rm -v $(pwd):/go/src/github.com/panga/consul-registration -w /go/src/github.com/panga/consul-registration golang:1.4.2 go build -v -a -tags netgo -installsuffix netgo -ldflags '-w'
+# $ docker run --rm -v $(pwd):/consul-registration -w /consul-registration golang:1.8.1 go build -v -a -tags netgo -installsuffix netgo -ldflags '-w'
 # $ docker build -t panga/consul-registration .
 #
 # To run:
