@@ -88,7 +88,7 @@ func main() {
 	for {
 		post.MarkServicePass(*serviceIdPtr, *consulAddrPtr, *checkNotePtr)
 		sleepTime := time.Duration(*sleepPtr) * time.Second
-		fmt.Printf("sleeping %v seconds\n", sleepTime)
+		// fmt.Printf("sleeping %v seconds\n", sleepTime)
 		time.Sleep(sleepTime)
 	}
 }
